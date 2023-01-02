@@ -5,7 +5,7 @@ As imagens estão disponíveis através do [GitHubPackages](https://github.com/f
 Você pode utilizar esta imagem em um container com o comando a seguir:
 
 ```bash
-docker run --name prometheus -d -p 9090:9090 fermino-linux/prometheus
+docker run --name prometheus -d -p 9090:9090 ferminolinux/prometheus
 ```
 
 Você pode iniciar o prometheus com um arquivo de configurações personalizado
@@ -16,7 +16,7 @@ docker run  \
     -d \
     -p 9090:9090 \
     -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
-    fermino-linux/prometheus
+    ferminolinux/prometheus
 ```
 
 Mais informações sobre esta e outras imagens que desenvolvi para praticar conceitos envolvendo containers, podem ser encontradas [aqui](https://github.com/container-images)
