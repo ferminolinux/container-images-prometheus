@@ -1,27 +1,9 @@
-# containers-images-prometheus
+# Container Images
 
-Imagem do prometheus para containers
+As imagens estão disponíveis através do GitHubPackages e no Docker Hub.
 
-## Descrição
-
-Todas as versões da imagem do prometheus presentes neste repositório possuem um script **config.sh** em seus diretórios, este deverá ser executado antes de iniciar o processo de build da imagem, ele vai obter a versão mais recente do prometheus para que ela possa ser utilizada na criação da imagem.
-
-### config.sh
+Você pode esta imagem utilizar em um container com o comando a seguir:
 
 ```bash
-#!/usr/bin/env bash
-
-URL='https://github.com/prometheus/prometheus/releases/download/v2.41.0/prometheus-2.41.0.linux-amd64.tar.gz'
-curl -fsSLo prometheus.tar.gz $URL
-
-mkdir prometheus
-tar -C prometheus --strip-components 1 -xf prometheus.tar.gz
-rm prometheus.tar.gz
-
+docker run --name prometheus -d -p 9090:9090 fermino-linux/prometheus
 ```
-
-## Tags
-
-No momento a imagem do prometheus, possui as tags:
-
-- [almalinux](almalinux/Dockerfile)
