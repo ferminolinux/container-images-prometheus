@@ -1,7 +1,5 @@
 FROM docker.io/almalinux/8-base
 
-LABEL org.opencontainers.image.source https://github.com/fermino-linux/container-images#main/prometheus/almalinux
-
 RUN set -eux; \
     # Create dirs
     mkdir /prometheus ; \
