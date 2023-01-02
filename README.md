@@ -11,7 +11,12 @@ docker run --name prometheus -d -p 9090:9090 fermino-linux/prometheus
 Você pode iniciar o prometheus com um arquivo de configurações personalizado
 
 ```bash
-docker run --name prometheus -d -p 9090:9090 -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml
+docker run  \ 
+    --name prometheus \
+    -d \
+    -p 9090:9090 \
+    -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
+    fermino-linux/prometheus
 ```
 
 Mais informações sobre esta e outras imagens que desenvolvi para praticar conceitos envolvendo containers, podem ser encontradas [aqui](https://github.com/container-images)
