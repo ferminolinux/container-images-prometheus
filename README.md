@@ -19,4 +19,4 @@ docker run  \
     ferminolinux/prometheus
 ```
 
-Mais informações sobre esta e outras imagens que desenvolvi para praticar conceitos envolvendo containers, podem ser encontradas [aqui](https://github.com/container-images)
+Mais informações sobre esta e outras imagens que desenvolvi para praticar conceitos envolvendo containers, podem ser encontradas [aqui](https://github.com/ferminolinux/container-images)
