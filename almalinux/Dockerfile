@@ -24,7 +24,7 @@ RUN set -eux; \
     # Move prometheus files to dirs
     mv /tmp/prometheus/{prometheus,promtool} /usr/local/bin ; \
     mv /tmp/prometheus/{prometheus.yml,LICENSE,NOTICE} /usr/local/etc/prometheus ; \
-    mv /tmp/prometheus/{consoles,console_libraries} /usr/local/share ; \
+    mv /tmp/prometheus/{consoles,console_libraries} /usr/local/share/prometheus ; \
 
     ln -s /usr/local/share/prometheus/{console_libraries,consoles} /usr/local/etc/prometheus ; 
 

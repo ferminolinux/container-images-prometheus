@@ -22,11 +22,19 @@ RUN set -eux; \
     rm /tmp/prometheus.tar.gz ; \
 
     # Move prometheus files to dirs
-    mv /tmp/prometheus/{prometheus,promtool} /usr/bin ; \
-    mv /tmp/prometheus/{prometheus.yml,LICENSE,NOTICE} /etc/prometheus ; \
-    mv /tmp/prometheus/{consoles,console_libraries} /usr/local/share ; \
+    mv /tmp/prometheus/prometheus /usr/bin ; \
+    mv /tmp/prometheus/promtool /usr/bin ; \ 
+    
+    mv /tmp/prometheus/prometheus.yml /etc/prometheus ; \
+    mv /tmp/prometheus/LICENSE /etc/prometheus ; \
+    mv /tmp/prometheus/NOTICE /etc/prometheus ; \
 
-    ln -s /usr/local/share/prometheus/{console_libraries,consoles} /etc/prometheus ; 
+    mv /tmp/prometheus/consoles /usr/local/share/prometheus ; \
+    mv /tmp/prometheus/console_libraries /usr/local/share/prometheus ; \
+
+    ln -s \
+        /usr/local/share/prometheus/console_libraries \
+        /usr/local/share/prometheus/consoles /etc/prometheus 
 
 WORKDIR ["/prometheus"]
 
@@ -36,9 +44,9 @@ EXPOSE 9090
 
 USER prometheus
 
-ENTRYPOINT ["/usr/local/bin/prometheus"]
+ENTRYPOINT ["/usr/bin/prometheus"]
 
-CMD ["--config.file=/usr/local/etc/prometheus/prometheus.yml", \
+CMD ["--config.file=/etc/prometheus/prometheus.yml", \
      "--storage.tsdb.path=/prometheus", \
      "--web.console.libraries=/usr/local/share/prometheus/console_libraries", \
      "--web.console.templates=/usr/local/share/prometheus/consoles" ]
