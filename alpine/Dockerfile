@@ -1,31 +1,31 @@
-FROM docker.io/almalinux/8-base
+FROM docker.io/alpine:latest
 
 RUN set -eux; \
     # Create dirs
     mkdir /prometheus ; \
     mkdir -p /usr/local/share/prometheus/{consoles,console_libraries} ; \
-    mkdir -p /usr/local/etc/prometheus/rules ; \
+    mkdir -p /etc/prometheus/rules ; \
     
     # Create user and set permissions
-    useradd -d /prometheus -M  prometheus ; \
+    adduser -h /prometheus -H  prometheus ; \
 
     chown  prometheus:prometheus /prometheus ; \
     chown  -R prometheus:prometheus /usr/local/share/prometheus ; \
-    chown -R prometheus:prometheus /usr/local/etc/prometheus ; \
+    chown -R prometheus:prometheus /etc/prometheus ; \
 
     # Get prometheus
     url='https://github.com/prometheus/prometheus/releases/download/v2.41.0/prometheus-2.41.0.linux-amd64.tar.gz' ; \
-    curl -fsSLo /tmp/prometheus.tar.gz $url ; \
+    wget -qO /tmp/prometheus.tar.gz $url ; \
     mkdir /tmp/prometheus && \
         tar -C /tmp/prometheus --strip-components 1 -xf /tmp/prometheus.tar.gz ; \
     chown -R prometheus:prometheus /tmp/prometheus ; \
 
     # Move prometheus files to dirs
-    mv /tmp/prometheus/{prometheus,promtool} /usr/local/bin ; \
-    mv /tmp/prometheus/{prometheus.yml,LICENSE,NOTICE} /usr/local/etc/prometheus ; \
+    mv /tmp/prometheus/{prometheus,promtool} /usr/bin ; \
+    mv /tmp/prometheus/{prometheus.yml,LICENSE,NOTICE} /etc/prometheus ; \
     mv /tmp/prometheus/{consoles,console_libraries} /usr/local/share ; \
 
-    ln -s /usr/local/share/prometheus/{console_libraries,consoles} /usr/local/etc/prometheus ; 
+    ln -s /usr/local/share/prometheus/{console_libraries,consoles} /etc/prometheus ; 
 
 WORKDIR ["/prometheus"]
 
