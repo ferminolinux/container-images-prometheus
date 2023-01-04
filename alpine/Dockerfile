@@ -7,7 +7,7 @@ RUN set -eux; \
     mkdir -p /etc/prometheus/rules ; \
     
     # Create user and set permissions
-    adduser -h /prometheus -H  prometheus ; \
+    adduser -h /prometheus -HD  prometheus ; \
 
     chown  prometheus:prometheus /prometheus ; \
     chown  -R prometheus:prometheus /usr/local/share/prometheus ; \
