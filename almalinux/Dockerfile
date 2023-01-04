@@ -19,6 +19,7 @@ RUN set -eux; \
     mkdir /tmp/prometheus && \
         tar -C /tmp/prometheus --strip-components 1 -xf /tmp/prometheus.tar.gz ; \
     chown -R prometheus:prometheus /tmp/prometheus ; \
+    rm /tmp/prometheus.tar.gz ; \
 
     # Move prometheus files to dirs
     mv /tmp/prometheus/{prometheus,promtool} /usr/local/bin ; \
