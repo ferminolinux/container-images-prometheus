@@ -28,7 +28,7 @@ RUN set -eux; \
 
     ln -s /usr/local/share/prometheus/{console_libraries,consoles} /usr/local/etc/prometheus ; 
 
-WORKDIR ["/prometheus"]
+WORKDIR "/prometheus"
 
 VOLUME ["/prometheus"]
 
@@ -41,4 +41,4 @@ ENTRYPOINT ["/usr/local/bin/prometheus"]
 CMD ["--config.file=/usr/local/etc/prometheus/prometheus.yml", \
      "--storage.tsdb.path=/prometheus", \
      "--web.console.libraries=/usr/local/share/prometheus/console_libraries", \
-     "--web.console.templates=/usr/local/share/prometheus/consoles" ]
+     "--web.console.templates=/usr/local/share/prometheus/consoles"]
