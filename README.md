@@ -18,5 +18,3 @@ docker run  \
     -v $(pwd)/prometheus.yml:/usr/local/etc/prometheus/prometheus.yml \
     ferminolinux/prometheus
 ```
-
-Mais informações sobre esta e outras imagens que desenvolvi para praticar conceitos envolvendo containers, podem ser encontradas [aqui](https://github.com/ferminolinux/container-images)
