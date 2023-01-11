@@ -1,4 +1,4 @@
-# Container Images
+# Container Images: Prometheus
 
 As imagens estão disponíveis através do [GitHubPackages](https://github.com/fermino-linux/container-images-prometheus/pkgs/container/prometheus) e no [Docker Hub](https://hub.docker.com/r/ferminolinux/prometheus).
 
